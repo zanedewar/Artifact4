@@ -69,6 +69,6 @@ function validateDrop(choiceVal) {
 }
 function validateZip(zipCode, countryVal) {
 	if(countryVal == "USA") 
-		return (zipCode <= 5 && zipCode > 0);
+		return (zipCode.length <= 5 && zipCode.length > 0);
 	return true;
 }
