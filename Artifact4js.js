@@ -12,16 +12,15 @@ function validateForm() {
 	var validZip = false;
 	var errorMessages = "";
 	
-	var firstName = document.getElementById("FirstName");
-	if(firstName === "null" || firstName ==="" || firstName.length > 20 || !checkCharacters(firstName)) {
+	validFirst = validateName(document.getElementById("FirstName").value, 20);
+	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
-		console.log("Hello");
-	}
-	else {
-		validFirst = true;
-	}
-	document.getElementById("errorMessages") = errorMessages;
+	validLast = validateName(document.getElementById("LastName").value, 50);
+	if(!validLast)
+		errorMessages += "<p>The last name is required and cannot be greater than 50 characters</p>";
 	
+	document.getElementById("errorMessages").innerHTML = errorMessages;
+	return(validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
 }
 function checkCharacters(word) {
 	for(var i = 0; i < word.length; i++) {
@@ -31,4 +30,10 @@ function checkCharacters(word) {
 	}
 	return true;
 	
+}
+function validateName(firstName, maxLength) {
+	if(firstName === "null" || firstName ==="" || firstName.length > maxLength || !checkCharacters(firstName)) {
+		return false;
+	}
+	return true;
 }
