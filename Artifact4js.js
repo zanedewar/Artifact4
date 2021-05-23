@@ -42,7 +42,7 @@ function validateName(firstName, maxLength) {
 }
 function validateEmail(email) {
 	var atpos = email.indexOf("@");
-	var dotpos = email.lastIndexof(".");
+	var dotpos = email.lastIndexOf(".");
 	return (atpos < 1 || dotpost < atpos + 2 || dotpos + 2 >= email.length);
 }
 function validatePhone(phone) {
