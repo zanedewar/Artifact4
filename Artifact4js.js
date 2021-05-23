@@ -20,6 +20,8 @@ function validateForm() {
 	validPass = validateCreds(document.getElementById("Password").value, 7);
 	validAddress = validateAdd(document.getElementById("Address").value);
 	validCity = validateAdd(document.getElementById("City").value);
+	validState = validateDrop(document.getElementById("State").value);
+	document.getElementById("State").value
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
@@ -36,6 +38,8 @@ function validateForm() {
 		errorMessages += "<p>Address is required</p>";
 	if(!validCity)
 		errorMessages += "<p>City is required</p>";
+	if(!validState)
+		errorMessages += "<p>Invalid state</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
 	return errorMessages.length === 0;
 	//return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
@@ -65,4 +69,7 @@ function validateCreds(user, maxLength) {
 }
 function validateAdd(str) {
 	return str.length > 0;
+}
+function validateDrop(choiceVal) {
+	return !(choiceVal == "000");
 }
