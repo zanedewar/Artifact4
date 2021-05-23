@@ -13,11 +13,13 @@ function validateForm() {
 	var errorMessages = "";
 	
 	var firstName = document.getElementById("FirstName");
-	if(firstName === "null" || firstName ==="" || firstName.length > 20 || !checkCharacters(firstName)) 
+	if(firstName === "null" || firstName ==="" || firstName.length > 20 || !checkCharacters(firstName)) {
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
-	else 
+		console.log("Hello");
+	}
+	else {
 		validFirst = true;
-	
+	}
 	document.getElementById("errorMessages") = errorMessages;
 	
 }
