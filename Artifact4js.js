@@ -54,7 +54,7 @@ function validateName(firstName, maxLength) {
 function validateEmail(email) {
 	var atpos = email.indexOf("@");
 	var dotpos = email.lastIndexOf(".");
-	return !(atpos < 1 || dotpost < atpos + 2 || dotpos + 2 >= email.length);
+	return !(atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length);
 }
 function validatePhone(phone) {
 	return !(isNaN(phone) || phone.length > 15 || phone === null || phone === "");
