@@ -12,6 +12,7 @@ function validateForm() {
 	var validAddress = validateAdd(document.getElementById("Address").value);
 	var validCity = validateAdd(document.getElementById("City").value);
 	var validState = validateDrop(document.getElementById("State").value);
+	var validCountry = validateDrop(document.getElementById("Country").value);
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
@@ -30,6 +31,8 @@ function validateForm() {
 		errorMessages += "<p>City is required</p>";
 	if(!validState)
 		errorMessages += "<p>Invalid state</p>";
+	if(!validCountry)
+		errorMessages += "<p>Invalid country</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
 	return errorMessages.length === 0;
 	//return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
