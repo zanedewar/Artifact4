@@ -25,7 +25,7 @@ function validateForm() {
 	if(!validPhone)
 		errorMessages += "<p>Invalid phone number</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
-	return!(validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
+	return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
 }
 function checkCharacters(word) {
 	for(var i = 0; i < word.length; i++) {
@@ -45,5 +45,5 @@ function validateEmail(email) {
 	return !(atpos < 1 || dotpost < atpos + 2 || dotpos + 2 >= email.length);
 }
 function validatePhone(phone) {
-	return!(isNaN(phone) || phone.length > 15 || phone === null || phone === "");
+	return !(isNaN(phone) || phone.length > 15 || phone === null || phone === "");
 }
