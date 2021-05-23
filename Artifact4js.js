@@ -35,8 +35,8 @@ function validateForm() {
 	if(!validZip)
 		errorMessages += "<p>Invalid zipcode</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
+	//If any of the fields were not valid, errorMessage will not be ""
 	return errorMessages.length === 0;
-	//return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
 }
 function checkCharacters(word) {
 	for(var i = 0; i < word.length; i++) {
