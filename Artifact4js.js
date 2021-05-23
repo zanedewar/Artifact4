@@ -16,7 +16,7 @@ function validateForm() {
 	validLast = validateName(document.getElementById("LastName").value, 50);
 	validEmail = validateEmail(document.getElementById("EMail").value);
 	validPhone = validatePhone(document.getElementById("Phone").value);
-	validUser = document.getElementById("Username").value.length <= 12;
+	validUser = validateUser(document.getElementById("Username").value);
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
@@ -26,7 +26,7 @@ function validateForm() {
 	if(!validPhone)
 		errorMessages += "<p>Invalid phone number</p>";
 	if(!validUser)
-		errorMessages += "<p>Username must be 12 or fewer characters</p>";
+		errorMessages += "<p>Username must be between 1 and 12 characters</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
 	return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
 }
@@ -49,4 +49,7 @@ function validateEmail(email) {
 }
 function validatePhone(phone) {
 	return !(isNaN(phone) || phone.length > 15 || phone === null || phone === "");
+}
+function validateUser(user) {
+	return (user.length <= 12 && user.length > 0)
 }
