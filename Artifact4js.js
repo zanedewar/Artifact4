@@ -16,6 +16,7 @@ function validateForm() {
 	validLast = validateName(document.getElementById("LastName").value, 50);
 	validEmail = validateEmail(document.getElementById("EMail").value);
 	validPhone = validatePhone(document.getElementById("Phone").value);
+	validUser = document.getElementById("Username").value.length <= 12;
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
@@ -24,6 +25,8 @@ function validateForm() {
 		errorMessages += "<p>Invalid email</p>";
 	if(!validPhone)
 		errorMessages += "<p>Invalid phone number</p>";
+	if(!validUser)
+		errorMessages += "<p>Username must be 12 or fewer characters</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
 	return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
 }
