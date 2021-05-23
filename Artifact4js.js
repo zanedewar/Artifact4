@@ -18,6 +18,8 @@ function validateForm() {
 	validPhone = validatePhone(document.getElementById("Phone").value);
 	validUser = validateCreds(document.getElementById("Username").value, 12);
 	validPass = validateCreds(document.getElementById("Password").value, 7);
+	validAddress = validateAdd(document.getElementById("Address").value);
+	validCity = validateAdd(document.getElementById("City").value);
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
@@ -30,8 +32,12 @@ function validateForm() {
 		errorMessages += "<p>Username must be between 1 and 12 characters</p>";
 	if(!validPass)
 		errorMessages += "<p>Password must be between 1 and 7 characters</p>";
+	if(!validAddress)
+		errorMessages += "<p>Address is required</p>";
+	if(!validCity)
+		errorMessages += "<p>City is required</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
-	return errorMessages.length > 0;
+	return errorMessages.length === 0;
 	//return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
 }
 function checkCharacters(word) {
@@ -56,4 +62,7 @@ function validatePhone(phone) {
 }
 function validateCreds(user, maxLength) {
 	return (user.length <= maxLength && user.length > 0)
+}
+function validateAdd(str) {
+	return str.length > 0;
 }
