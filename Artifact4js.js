@@ -1,8 +1,5 @@
 function validateForm() {
-	var validCountry = false;
-	var validZip = false;
 	var errorMessages = "";
-	
 	var validFirst = validateName(document.getElementById("FirstName").value, 20);
 	var validLast = validateName(document.getElementById("LastName").value, 50);
 	var validEmail = validateEmail(document.getElementById("EMail").value);
@@ -12,7 +9,9 @@ function validateForm() {
 	var validAddress = validateAdd(document.getElementById("Address").value);
 	var validCity = validateAdd(document.getElementById("City").value);
 	var validState = validateDrop(document.getElementById("State").value);
-	var validCountry = validateDrop(document.getElementById("Country").value);
+	var country = document.getElementById("Country").value;
+	var validCountry = validateDrop(country);
+	var validateZip = validateZip(document.getElementyById("ZipCode"), country);
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
@@ -33,6 +32,8 @@ function validateForm() {
 		errorMessages += "<p>Invalid state</p>";
 	if(!validCountry)
 		errorMessages += "<p>Invalid country</p>";
+	if(!validZip)
+		errorMessages += "<p>Invalid zipcode</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
 	return errorMessages.length === 0;
 	//return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
@@ -65,4 +66,9 @@ function validateAdd(str) {
 }
 function validateDrop(choiceVal) {
 	return !(choiceVal == "000");
+}
+function validateZip(zipCode, countryVal) {
+	if(countryVal == "USA") 
+		return (zipCode <= 5 && zipCode > 0);
+	return true;
 }
