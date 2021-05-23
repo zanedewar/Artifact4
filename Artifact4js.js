@@ -11,7 +11,7 @@ function validateForm() {
 	var validState = validateDrop(document.getElementById("State").value);
 	var country = document.getElementById("Country").value;
 	var validCountry = validateDrop(country);
-	var validZip = validateZip(document.getElementById("ZipCode"), country);
+	var validZip = validateZip(document.getElementById("ZipCode").value, country);
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
@@ -69,7 +69,6 @@ function validateDrop(choiceVal) {
 }
 function validateZip(zipCode, countryVal) {
 	if(countryVal == "USA")
-		console.log(zipCode.length);
 		return (zipCode.length <= 5 && zipCode.length > 0);
 	return true;
 }
