@@ -11,7 +11,7 @@ function validateForm() {
 	var validState = validateDrop(document.getElementById("State").value);
 	var country = document.getElementById("Country").value;
 	var validCountry = validateDrop(country);
-	var validateZip = validateZip(document.getElementyById("ZipCode"), country);
+	var validZip = validateZip(document.getElementById("ZipCode"), country);
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
