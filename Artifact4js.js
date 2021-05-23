@@ -13,12 +13,18 @@ function validateForm() {
 	var errorMessages = "";
 	
 	validFirst = validateName(document.getElementById("FirstName").value, 20);
+	validLast = validateName(document.getElementById("LastName").value, 50);
+	validEmail = validateEmail(document.getElementById("EMail").value);
+	validPhone = validatePhone(document.getElementById("Phone").value);
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
-	validLast = validateName(document.getElementById("LastName").value, 50);
+	
 	if(!validLast)
 		errorMessages += "<p>The last name is required and cannot be greater than 50 characters</p>";
-	
+	if(!validEmail)
+		errorMessages += "<p>Invalid email</p>";
+	if(!validPhone)
+		errorMessages += "<p>Invalid phone number</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
 	return(validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
 }
@@ -32,8 +38,13 @@ function checkCharacters(word) {
 	
 }
 function validateName(firstName, maxLength) {
-	if(firstName === "null" || firstName ==="" || firstName.length > maxLength || !checkCharacters(firstName)) {
-		return false;
-	}
-	return true;
+	return (firstName === "null" || firstName ==="" || firstName.length > maxLength || !checkCharacters(firstName));
+}
+function validateEmail(email) {
+	var atpos = email.indexOf("@");
+	var dotpos = email.lastIndexof(".");
+	return (atpos < 1 || dotpost < atpos + 2 || dotpos + 2 >= email.length);
+}
+function validatePhone(phone) {
+	return(isNaN(phone) || phone.length > 15 || phone === null || phone === "");
 }
