@@ -1,27 +1,17 @@
 function validateForm() {
-	var validFirst = false;
-	var validLast = false;
-	var validEmail = false;
-	var validPhone = false;
-	var validUser = false;
-	var validPass = false;
-	var validAddress = false;
-	var validCity = false;
-	var validState = false;
 	var validCountry = false;
 	var validZip = false;
 	var errorMessages = "";
 	
-	validFirst = validateName(document.getElementById("FirstName").value, 20);
-	validLast = validateName(document.getElementById("LastName").value, 50);
-	validEmail = validateEmail(document.getElementById("EMail").value);
-	validPhone = validatePhone(document.getElementById("Phone").value);
-	validUser = validateCreds(document.getElementById("Username").value, 12);
-	validPass = validateCreds(document.getElementById("Password").value, 7);
-	validAddress = validateAdd(document.getElementById("Address").value);
-	validCity = validateAdd(document.getElementById("City").value);
-	validState = validateDrop(document.getElementById("State").value);
-	document.getElementById("State").value
+	var validFirst = validateName(document.getElementById("FirstName").value, 20);
+	var validLast = validateName(document.getElementById("LastName").value, 50);
+	var validEmail = validateEmail(document.getElementById("EMail").value);
+	var validPhone = validatePhone(document.getElementById("Phone").value);
+	var validUser = validateCreds(document.getElementById("Username").value, 12);
+	var validPass = validateCreds(document.getElementById("Password").value, 7);
+	var validAddress = validateAdd(document.getElementById("Address").value);
+	var validCity = validateAdd(document.getElementById("City").value);
+	var validState = validateDrop(document.getElementById("State").value);
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
