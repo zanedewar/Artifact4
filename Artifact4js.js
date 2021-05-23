@@ -16,7 +16,8 @@ function validateForm() {
 	validLast = validateName(document.getElementById("LastName").value, 50);
 	validEmail = validateEmail(document.getElementById("EMail").value);
 	validPhone = validatePhone(document.getElementById("Phone").value);
-	validUser = validateUser(document.getElementById("Username").value);
+	validUser = validateCreds(document.getElementById("Username").value, 12);
+	validPass = validateCreds(document.getElementById("Password").value, 7);
 	if(!validFirst)
 		errorMessages += "<p>The first name is required and cannot be greater than 20 characters</p>";
 	if(!validLast)
@@ -50,6 +51,6 @@ function validateEmail(email) {
 function validatePhone(phone) {
 	return !(isNaN(phone) || phone.length > 15 || phone === null || phone === "");
 }
-function validateUser(user) {
-	return (user.length <= 12 && user.length > 0)
+function validateCreds(user, maxLength) {
+	return (user.length <= maxLength && user.length > 0)
 }
