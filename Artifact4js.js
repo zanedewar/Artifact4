@@ -28,8 +28,11 @@ function validateForm() {
 		errorMessages += "<p>Invalid phone number</p>";
 	if(!validUser)
 		errorMessages += "<p>Username must be between 1 and 12 characters</p>";
+	if(!validPass)
+		errorMessages += "<p>Password must be between 1 and 7 characters</p>";
 	document.getElementById("errorMessages").innerHTML = errorMessages;
-	return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
+	return errorMessages.length > 0;
+	//return (validFirst && validLast && validEmail && validPhone && validUser && validPass && validAddress && validCity && validState && validCountry && validZip)
 }
 function checkCharacters(word) {
 	for(var i = 0; i < word.length; i++) {
